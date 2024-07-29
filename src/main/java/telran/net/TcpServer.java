@@ -14,7 +14,8 @@ public class TcpServer {
 				Socket socket = serverSocket.accept();
 				TcpClientServerSession session =
 						new TcpClientServerSession(socket, protocol);
-				session.run();
+				Thread thread = new Thread(session);
+				thread.start();
 			}
 				
 			

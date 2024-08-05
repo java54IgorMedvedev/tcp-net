@@ -46,9 +46,7 @@ public class TcpServer implements Runnable{
 				}
 				
 			}
-			
-				
-			
+		
 		} catch(Exception e) {
 			throw new RuntimeException(e);
 		}

@@ -3,13 +3,15 @@ package telran.net;
 import java.net.*;
 import java.io.*;
 import static telran.net.TcpConfigurationProperties.*;
-public class TcpClientServerSession extends Thread{
+public class TcpClientServerSession implements Runnable{
 	Socket socket;
 	Protocol protocol;
 	TcpServer tcpServer;
 	public TcpClientServerSession(Socket socket, Protocol protocol, TcpServer tcpServer) {
 		this.socket = socket;
 		this.tcpServer = tcpServer;
+		//using the method setSoTimeout and some solution for getting session to know about shutdown
+		//you should stop the thread after shutdown command
 		this.protocol = protocol;
 	}
 	public void run() {
